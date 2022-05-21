@@ -5,7 +5,9 @@ As in the past, people need markets and buffets for the supply of food and simil
 ## Acquired Knowledge
 After reviewing the implementation steps, you will be able to understand the process of developing a mobile geospatial data collection platform using technologies such as QField, QGIS, Postgres/PostGIS, and Syncthing, and build your own website on heroku, which is open source.
 
-![Veri Toplama](https://wiki.osgeo.org/w/images/e/e3/01_overview.jpg)
+**Comparison of Mobile Data Collection Platforms**
+
+![Comparison of mobile data collection platforms](https://wiki.osgeo.org/w/images/e/e3/01_overview.jpg)
 
 ### Setting Up the Environment
 This section describes the required steps to set up the development environment. In order to realise the steps described in subsequent sections in a smooth manner, it is recommended that the users:
@@ -22,6 +24,8 @@ This section describes the required steps to set up the development environment.
 A database server should be available in the web to initiate a mobile geographic data collection project. There are several solutions that offer a free solution to this. One of the platforms supporting Postgres and PostGIS is Heroku, which is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. Therefore, this tutorial relied on Heroku to set up the database on the cloud.
 
 The sign up page of [Heroku](https://signup.heroku.com/login?redirect-url=https%3A%2F%2Fid.heroku.com%2Foauth%2Fauthorize%3Fclient_id%3Dd2ef2b24-e72c-4adf-8506-28db2218547d%26response_type%3Dcode%26scope%3Dglobal%252Cplatform%26state%3DSFMyNTY.g3QAAAACZAAEZGF0YW0AAAAxaHR0cHM6Ly9kYXNoYm9hcmQuaGVyb2t1LmNvbS9hdXRoL2hlcm9rdS9jYWxsYmFja2QABnNpZ25lZG4GANL7onluAQ.eDiBIjGpk8wBx82K2Ej2tBwAitNPBGNQoMMDLoySy78) requires some personal information such as name, surname and email address.
+
+**Sign up page of Heroku**
 
 ![Sign up page of Heroku](https://wiki.osgeo.org/w/images/0/0e/1_Heroku_Login.jpg)
 
@@ -59,7 +63,9 @@ This tutorial relied on pgAdmin 4, and one it is installed, we can connect to ou
    - Password: Password (check the ‘Save password’ box for ease of login in future)
 - Finally go the Advanced tab and state the name of the database next to DB restriction, so that only the relevant database would be visible on your screen.
 
-[Connecting Heroku database](https://wiki.osgeo.org/w/images/d/d3/Heroku_connection.png)
+**Connecting Heroku Database**
+
+![Connecting Heroku database](https://wiki.osgeo.org/w/images/d/d3/Heroku_connection.png)
 
 It is now possible to create the tables. To open the query window, right click on the database and select the Query Tool.
 
