@@ -16,3 +16,26 @@ This section describes the required steps to set up the development environment.
 - Transfer the project from desktop PC (QGIS) to mobile data collection platform (QField).
 
 ## Application Steps
+### 1.Opening a Heroku Account
+
+A database server should be available in the web to initiate a mobile geographic data collection project. There are several solutions that offer a free solution to this. One of the platforms supporting Postgres and PostGIS is Heroku, which is a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud. Therefore, this tutorial relied on Heroku to set up the database on the cloud.
+The sign up page of [Heroku](https://signup.heroku.com/login?redirect-url=https%3A%2F%2Fid.heroku.com%2Foauth%2Fauthorize%3Fclient_id%3Dd2ef2b24-e72c-4adf-8506-28db2218547d%26response_type%3Dcode%26scope%3Dglobal%252Cplatform%26state%3DSFMyNTY.g3QAAAACZAAEZGF0YW0AAAAxaHR0cHM6Ly9kYXNoYm9hcmQuaGVyb2t1LmNvbS9hdXRoL2hlcm9rdS9jYWxsYmFja2QABnNpZ25lZG4GANL7onluAQ.eDiBIjGpk8wBx82K2Ej2tBwAitNPBGNQoMMDLoySy78) requires some personal information such as name, surname and email address.
+
+![Sign up page of Heroku](https://wiki.osgeo.org/w/images/0/0e/1_Heroku_Login.jpg)
+Once the form is submitted, an email is sent to verify the account. These credentials is used to create a new app.
+The second step is to create a Heroku app with a Postgres database. Steps are as follows:
+
+- Log in to your Heroku account.
+- Click "New" → "Create New App" (→ symbol is a left click and ⇒ is a right-click)
+- Create New App
+  - Provide a unique app name. Heroku acknowledges if the provided app name is unique.
+  - There are two regions: "United States" (default) and "Europe". You may leave it as it is.
+  - Finally, click "Create app".
+- Go to https://dashboard.heroku.com/apps and choose the app you just created.
+- Click on "Resources" tab.
+  - Under "Add-ons" type "Heroku Postgres" and click on it. Finally, complete the Postgres deployment by clicking on the "Provision" button.
+- To see the database credentials:
+  - Click on the settings symbol located on the top-right corner.
+  - Click "Data".
+  - Select your application.
+  - Go to "Settings" → "View Credentials".
