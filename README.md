@@ -59,8 +59,7 @@ This tutorial relied on pgAdmin 4, and one it is installed, we can connect to ou
    - Password: Password (check the ‘Save password’ box for ease of login in future)
 - Finally go the Advanced tab and state the name of the database next to DB restriction, so that only the relevant database would be visible on your screen.
 
+[Connecting Heroku database](https://wiki.osgeo.org/w/images/d/d3/Heroku_connection.png)
+
 It is now possible to create the tables. To open the query window, right click on the database and select the Query Tool.
 
-The scenario for this tutorial requires three tables: i) trees and ii) regions are tables with a spatial aspect, whereas tree_type do not have a geometry and are used to ease the process of data collection. In addition, multiple languages are supported in a more convenient way.
-
-First, let us create the tree_type table. The following code creates two different types of trees (pine and oak) in two different languages (English and Turkish).
