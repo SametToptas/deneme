@@ -66,6 +66,7 @@ This tutorial relied on pgAdmin 4, and one it is installed, we can connect to ou
 **Connecting Heroku Database**
 
 ![Connecting Heroku database](https://wiki.osgeo.org/w/images/d/d3/Heroku_connection.png)
+<img src="https://wiki.osgeo.org/w/images/d/d3/Heroku_connection.png" width="500" height="700">
 
 It is now possible to create the tables. To open the query window, right click on the database and select the Query Tool.
 
