@@ -1116,5 +1116,5 @@ Open a web browser and type: [site](https://team1gis.herokuapp.com/#). Once the 
 
 ![Visualising collected data on localhost](https://github.com/SametToptas/osgeo_report_images/blob/main/sitee.png?raw=true)
 
-## 14.Deploying the Project on Heroku
+## 15.Deploying the Project on Heroku
 
