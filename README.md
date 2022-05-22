@@ -466,3 +466,100 @@ In terminal write the following and press enter:
 ```javascript
 npm install express --save
 ```
+
+- **File System Module**
+
+This allows to work with the file system on your computer.
+
+In terminal write the following and press enter:
+
+```javascript
+ npm install fs --save
+```
+
+- **Bluebird Module**
+
+Bluebird is a fully featured library with focus on innovative features and performance.
+
+In terminal write the following and press enter:
+
+```javascript
+ npm install bluebird --save
+```
+
+- **Pg-Promise Module**
+
+Pg-promise is a PostgreSQL interface for NodeJS.
+
+In terminal write the following and press enter:
+
+```javascript
+ npm install pg-promise --save
+```
+
+The package.json will be updated once these packages are installed, and will look this. Notice the **dependencies**:
+
+**Updated package.json**
+
+![Updated package.json](https://wiki.osgeo.org/w/images/a/a7/Web_package_json.jpg)
+
+Project settings are ready.
+
+Now, we need to establish the database connection. Click the **New File** button, and add **appConfig.js** file.
+
+**Adding the appConfig.js file**
+
+![Adding the appConfig.js file](https://wiki.osgeo.org/w/images/d/d5/Web_appconfig.jpg)
+
+The appConfig.js would include the database connection settings (for now it is the localhost) and the entire content of the file should be:
+
+```javascript
+ var developmentDatabase = {
+postgres: {
+host: 'localhost',
+port: 5432,
+database: 'database_name',
+user: 'postgres',
+password: 'postgres'
+}
+}
+
+var connectionString = "postgressql://user:password@host:port/databasename?ssl=true";
+if (process.env.NODE_ENV == 'production') {
+//Production mode
+if (process.env.DATABASE_URL) {
+developmentDatabase =
+parseConnectionString(process.env.DATABASE_URL);
+} else {
+console.log("process.env.DATABASE_URL empty, connectionStringvariable used");
+developmentDatabase = parseConnectionString(connectionString);
+}
+}else{
+//Development mode
+developmentDatabase = parseConnectionString(connectionString);
+}
+function parseConnectionString(connectionString) {
+if (connectionString) {
+var myRegexp = /(\w+):(\w+)@(.+):(\w+)\/(\w+)/g;
+var match = myRegexp.exec(connectionString);
+if (match.length == 6) {
+developmentDatabase.postgres.user = match[1];
+developmentDatabase.postgres.password = match[2];
+developmentDatabase.postgres.host = match[3];
+developmentDatabase.postgres.port = Number(match[4]);
+developmentDatabase.postgres.database = match[5];
+developmentDatabase.postgres.ssl = true;
+return developmentDatabase;
+}
+}
+console.log("connectionString cannot be parsed");
+return null;
+}
+module.exports = {
+hostname: "http://localhost",
+port: 5656,
+database: {
+postgres: developmentDatabase.postgres
+}
+}
+```
