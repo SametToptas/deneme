@@ -75,11 +75,15 @@ The scenario for this tutorial requires three tables: i) markets and ii) buffets
 
 First, let's create the market_type table. The following code creates two different types of markets (supermarket and buffet).
 
+**Creating the market_type table**
+
 ![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20code1.png?raw=true)
 
 The other two tables possess a spatial component. Therefore, the first step is to activate the extension **postgis**, which is achieved using the create extension postgis statement. 
 
 The SQL statements to create the **markets** tables are as follows.
+
+**Creating the markets tables**
 
 ![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20code2.png?raw=true)
 
@@ -123,6 +127,8 @@ Finally, once the OK button is clicked, the connection appears on the Browser pa
 
 in QGIS In order to ease the process of data collection, it is useful to explicitly state the value relationships between the feature layers and to improve the user experience by hiding some of the details. For instance, a student can only select one of the pre-defined market types instead of typing it. This can be achieved by adjusting the **Attribute Form** specified under the **Properties** of the markets layer as shown below.
 
+**Relating the tree type in trees layer with pre-defined tree_types**
+
 <img src="" width="500" height="700">
 
 The market type attribute m_type has a value relation to the market_types table. In order to realise this relation. The following settings are specified:
@@ -137,6 +143,8 @@ In addition, some of the attributes might better be hidden from the users such a
 - Uncheck **Editable**
 - **Widget type:** Hidden
 
+**Removing clutter from the GUI by hiding some attributes**
+
 <img src="" width="500" height="700">
 
 Once an attribute is hidden, it means that during data collection that field is not displayed to the user. However, a user could still update it under the attribute table. In order to prevent this as well, we have unchecked Editable.
@@ -144,6 +152,8 @@ Once an attribute is hidden, it means that during data collection that field is 
 The last attribute of the markets layer is the observation time. It might be important to record the observation time in order to facilitate further spatio-temporal analysis.
 
 Update the default value of the observation_time attribute to be now() as shown in the figure below. In this way, whenever a market is recorded, its observation time is also recorded.
+
+**Assigning default observation time to the corresponding attribute**
 
 <img src="" width="500" height="700">
 
@@ -153,6 +163,8 @@ Actions:
 - **Default value**: now()
 
 If the mobile data collection platform assumes internet connection, then including OpenStreetMap in the QGIS project may ease data collection process. Install the **OpenLayers** plugin, and include **OpenStreetMap** in your project.
+
+**Including OpenStreetMap in the project to ease data collection**
 
 <img src="" width="500" height="700">
 
