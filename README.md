@@ -429,3 +429,37 @@ This section describes how to visualise the data stored in the database on the w
 
 ## 13.Technologies
 
+### NodeJS
+
+NodeJS is an open-source, cross-platform, JavaScript runtime environment that executes JavaScript code outside of a browser. It can be downloaded from [here](https://nodejs.org/en/).
+
+### Visual Studio Code
+
+Visual Studio Code is a source code editor that can be used with a variety of programming languages. It is developed by Microsoft for Windows, Linux and macOS. It can be downloaded from [this link](https://code.visualstudio.com/). The version used for this tutorial is 1.40.1.
+
+**Git** Git is a software development version control system. In order to effectively upload our project to GitHub, Git must be downloaded from this link.
+
+## 14.Create Desktop App
+
+Create an empty folder on the computer.
+
+Open Visual Studio Code. Go to **File → Open folder**.
+
+Then go to **Terminal → New Terminal**.
+
+It opens a terminal screen below the screen. Write **npm init** on the terminal screen end press enter. It asks some questions to create **package.json**, which holds various metadata relevant to the project.
+
+Press enter for all of the questions. The metadata file **package.json** is created at the end of this process. Once all the default values are accepted, the **package.json** looks like:
+
+**The metadata file: package.json**
+
+![The metadata file: package.json](https://wiki.osgeo.org/w/images/a/a7/Web_package_json.jpg)
+
+Some JavaScript packages need to be installed. These packages will be installed via npm (Node Package Manager). Packages to install are listed as follows:
+
+- **Express Module**
+
+Express is a minimal and flexible Node.js web application framework that provides a robust set of features to develop web and mobile applications.
+
+In terminal write the following and press enter:
+
