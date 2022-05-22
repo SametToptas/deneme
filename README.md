@@ -244,3 +244,110 @@ Open the attributes table. Right click the 'markets' layer and click 'Open attri
 - Press the 'New Field' button which is shown with button '2'.
 
 **Adding a new attribute from QGIS**
+
+<img src="" width="500" height="700">
+
+After that, enter the column name and select the data type. Select type as 'Text, unlimited length (text)', and then click OK.
+
+**Adding a new field in QGIS**
+
+<img src="" width="500" height="700">
+
+Finally, click on 'Toggle Editing Mode' to end editing, and press save.
+
+The following adjustments have to be satisfied to display photos on QGIS:
+
+- Right click to 'markets' layer and press **properties**
+- Go to **Attributes Form**
+- Select the Photo column
+- Select **Widget Type** as **Attachment**
+- Enter default path of DCIM folder
+- Select **Relative paths** and leave the default option checked **Relative to Project Path**
+
+**Configuring the photos field – part 1**
+
+<img src="" width="500" height="700">
+
+Continue with the following steps:
+
+- Under **Storage Mode** select **File paths**
+- Check **Display Resource Path**
+- Check **Display button to open file dialog**
+- Finally, select the **Integrated Document Viewer** as **Image**
+
+Press the apply button. The project is now ready to display photos of trees.
+
+**Configuring the photos field – part 2**
+
+<img src="" width="500" height="700">
+
+Transfer the project folder containing:
+
+- The updated QGS file (gisteam1_w_photo_2_qfield.qgs) and
+- the DCIM folder that you will now share
+
+to your mobile device.
+
+**Transfer the project folder to the mobile device**
+
+<img src="" width="500" height="700">
+
+To synchronise the photo folder with the connected devices, press **Add Folder** in the SyncTrayzor as shown below.
+
+**Adding the folder in SyncTrayzor for sharing photos with multiple users**
+
+<img src="" width="500" height="700">
+
+Enter the folder name and folder path. It is important to enter the file location correctly as shown below.
+
+**Setting the file synchronisation folder**
+
+<img src="" width="500" height="700">
+
+Select the mobile devices you want to synchronize the folder that contains photos in the **Sharing** option and press **Save** button.
+
+**Selecting the devices to share the directory containing photos**
+
+<img src="" width="500" height="700">
+
+This sends a request to the mobile device(s) selected for acknowledgment. Please note that
+
+- This request appears **only** in the pull-down notification bar as shown below and
+- It might take a while since mobile devices can easily get disconnected.
+
+**Folder share request sent to mobile device**
+
+![Folder share request sent to mobile device](https://wiki.osgeo.org/w/images/1/16/Drop_down.jpg)
+
+**Accept the request**
+
+![Accept the request](https://wiki.osgeo.org/w/images/e/ef/Photo_ackw_mobile.jpg)
+
+**Select** the DCIM folder that you previously transferred to finalise the synchronisation setup on your mobile device as shown below. Note that it is the same folder that you transferred to the mobile device (i.e. **DCIM** folder under the **?????Değişcek?????** folder).
+
+**Setting up the mobile device to accommodate synched photos**
+
+<img src="" width="500" height="700">
+
+Now the synched mobile devices are ready to take photos. The photos will be synched with the PC as well as with other synched mobile devices.
+
+## 8.Collecting Photos on the Field
+
+Open the updated QGIS project file (gisteam1_w_photo_2_qfield.qgs) in QField and record an observation. The following screen will pop-up:
+
+**Taking a photo of an observation with QField**
+
+<img src="" width="500" height="700">
+
+Once the camera icon is clicked, camera opens an a photo can be captured. If there is a problem at this point, make sure that the **Use native camera function** is turned off under QField Settings as shown below:
+
+**Taking a photo of an observation with QField**
+
+![Taking a photo of an observation with QField](https://wiki.osgeo.org/w/images/e/e4/Photo_native_camera.jpeg)
+
+The captured photos will be synched with all the connected devices. Consequently, a captured photo of a tree can also be visualised in QGIS:
+
+**Visualising a Field Photo in QGIS**
+
+<img src="" width="500" height="700">
+
