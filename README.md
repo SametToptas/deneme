@@ -54,30 +54,32 @@ A user interface can be used to manipulate a Postgres database such as [pgAdmin]
 
 This tutorial relied on pgAdmin 4, and one it is installed, we can connect to our Heroku database with the following steps:
 
-- Right click on Servers → Create Server
-- Click on General and provide a name for your server (e.g. heroku).
-- Go to the Connection tab, and enter the Heroku database credentials that you have previously obtained.
+- Right click on **Servers → Create Server**
+- Click on **General** and provide a name for your server (e.g. heroku).
+- Go to the **Connection** tab, and enter the Heroku database credentials that you have previously obtained.
    - Host name/address: Host
    - Maintenance database: Database
    - Username: User
    - Password: Password (check the ‘Save password’ box for ease of login in future)
-- Finally go the Advanced tab and state the name of the database next to DB restriction, so that only the relevant database would be visible on your screen.
+- Finally go the **Advanced** tab and state the name of the database next to **DB restriction**, so that only the relevant database would be visible on your screen.
 
 **Connecting Heroku Database**
 
-![Connecting Heroku database](https://wiki.osgeo.org/w/images/d/d3/Heroku_connection.png)
+<img src="https://wiki.osgeo.org/w/images/5/58/Postgres2qgis.jpg" width="500" height="700">
 
-It is now possible to create the tables. To open the query window, right click on the database and select the Query Tool.
+It is now possible to create the tables. To open the query window, right click on the database and select the **Query Tool.**
 
 The scenario for this tutorial requires three tables: i) markets and ii) buffets are tables with a spatial aspect, whereas market_type does not have a geometry and is used to streamline the data collection process. Also, multiple languages are supported in a more convenient way.
 
 First, let's create the market_type table. The following code creates two different types of markets (supermarket and buffet).
 
-![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20code1.png?raw=true)
+![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20connection.png?raw=true)
 
-The other two tables possess a spatial component. Therefore, the first step is to activate the extension postgis, which is achieved using the create extension postgis statement. 
+![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20connection%202.png?raw=true)
 
-The SQL statements to create the markets tables are as follows.
+The other two tables possess a spatial component. Therefore, the first step is to activate the extension **postgis**, which is achieved using the create extension postgis statement. 
+
+The SQL statements to create the **markets** tables are as follows.
 
 ![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20code2.png?raw=true)
 
@@ -90,3 +92,29 @@ The following attributes are included within the created tables:
 - observation_time is the date-time of an observation.
 
 markets table has a point geometry indicating the latitude and longitude of the observed market as well as the market type and observation time. 
+
+## Connecting the Database with QGIS
+
+The Postgres database created in the previous subsection can be included directly into a QGIS project, thanks to the seamless linkage between QGIS and Postgres. 
+
+Once PostGIS is right-clicked, and New Connection is clicked, the following interface opens in which you can provide database credentials of the Heroku database.
+
+**Linking the Postgres database with QGIS**
+
+<img src="https://wiki.osgeo.org/w/images/5/58/Postgres2qgis.jpg" width="500" height="700">
+
+Details you have to provide:
+
+- An arbitrary **Name**
+- **Host, Port** and **Database** should exactly be the same as it appears on the Heroku page.
+- **SSL mode** should be allow.
+- Go to **Basic** tab under **Authentication**, and you store the **user name** and **password** in order to ease the process of real time data collection.
+- Do not forget to check the box **Also list tables with no geometry** to obtain all the tables of the database.
+
+If all the credentials of the Heroku database are entered correctly, clicking the Test Connection button pops up a window indicating the success of the connection.
+
+Finally, once the OK button is clicked, the connection appears on the Browser panel as shown below, and the user can add all the relevant tables to the layer panel by double-clicking on the table.
+
+**Adding the tables in Heroku to QGIS**
+
+<img src="https://wiki.osgeo.org/w/images/5/58/Postgres2qgis.jpg" width="500" height="700">
