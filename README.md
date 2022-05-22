@@ -66,7 +66,27 @@ This tutorial relied on pgAdmin 4, and one it is installed, we can connect to ou
 **Connecting Heroku Database**
 
 ![Connecting Heroku database](https://wiki.osgeo.org/w/images/d/d3/Heroku_connection.png)
-<img src="https://wiki.osgeo.org/w/images/d/d3/Heroku_connection.png" width="500" height="700">
 
 It is now possible to create the tables. To open the query window, right click on the database and select the Query Tool.
 
+The scenario for this tutorial requires three tables: i) markets and ii) buffets are tables with a spatial aspect, whereas market_type does not have a geometry and is used to streamline the data collection process. Also, multiple languages are supported in a more convenient way.
+
+First, let's create the market_type table. The following code creates two different types of markets (supermarket and buffet).
+
+![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20code1.png?raw=true)
+
+The other two tables possess a spatial component. Therefore, the first step is to activate the extension postgis, which is achieved using the create extension postgis statement. 
+
+The SQL statements to create the markets tables are as follows.
+
+![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20code2.png?raw=true)
+
+The following attributes are included within the created tables:
+
+- markets
+- m_type is the type of a market.
+- id is the unique identifier of a market.
+- loc is the location of a market in WGS 84.
+- observation_time is the date-time of an observation.
+
+markets table has a point geometry indicating the latitude and longitude of the observed market as well as the market type and observation time. 
