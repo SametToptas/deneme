@@ -7,7 +7,7 @@ After reviewing the implementation steps, you will be able to understand the pro
 
 **Comparison of Mobile Data Collection Platforms**
 
-![Comparison of mobile data collection platforms](https://wiki.osgeo.org/w/images/e/e3/01_overview.jpg)
+<img src="https://wiki.osgeo.org/w/images/e/e3/01_overview.jpg" width="300" height="300">
 
 ### Setting Up the Environment
 This section describes the required steps to set up the development environment. In order to realise the steps described in subsequent sections in a smooth manner, it is recommended that the users:
@@ -27,7 +27,7 @@ The sign up page of [Heroku](https://signup.heroku.com/login?redirect-url=https%
 
 **Sign up page of Heroku**
 
-![Sign up page of Heroku](https://wiki.osgeo.org/w/images/0/0e/1_Heroku_Login.jpg)
+<img src="https://wiki.osgeo.org/w/images/0/0e/1_Heroku_Login.jpg" width="350" height="350">
 
 Once the form is submitted, an email is sent to verify the account. These credentials is used to create a new app.
 
@@ -65,9 +65,9 @@ This tutorial relied on pgAdmin 4, and one it is installed, we can connect to ou
 
 **Connecting Heroku Database**
 
-![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20connection.png?raw=true)
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20connection.png?raw=true" height="350">
 
-![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20connection%202.png?raw=true)
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20connection%202.png?raw=true" width="350" height="350">
 
 It is now possible to create the tables. To open the query window, right click on the database and select the **Query Tool.**
 
@@ -105,7 +105,7 @@ Once PostGIS is right-clicked, and New Connection is clicked, the following inte
 
 **Linking the Postgres database with QGIS**
 
-<img src="https://wiki.osgeo.org/w/images/5/58/Postgres2qgis.jpg" width="500" height="700">
+<img src="https://wiki.osgeo.org/w/images/5/58/Postgres2qgis.jpg" width="400" height="400">
 
 Details you have to provide:
 
@@ -194,43 +194,43 @@ Having installed Syncthing on PC and mobile devices, they are required to be con
 
 **Obtaining the ID of the PC where each photo will be uploaded**
 
-![Obtaining the ID of the PC where each photo will be uploaded](https://wiki.osgeo.org/w/images/7/7e/Syncthing_showid.jpg)
+<img src="https://wiki.osgeo.org/w/images/7/7e/Syncthing_showid.jpg" width="500" height="300">
 
 The ID of a device is presented as a text and QR code as shown below.
 
 **ID of a Snycthing device**
 
-![ID of a Snycthing device](https://wiki.osgeo.org/w/images/b/bf/Syncthing_id.jpg)
+<img src="https://wiki.osgeo.org/w/images/b/bf/Syncthing_id.jpg" width="300" height="300">
 
 This code must also be entered to the mobile device. Press the '+' button in the **Devices** menu as shown below.
 
 **Synching the mobile device with PC**
 
-![Synching the mobile device with PC](https://wiki.osgeo.org/w/images/2/2a/Syncthing_add_device.jpg)
+<img src="https://wiki.osgeo.org/w/images/2/2a/Syncthing_add_device.jpg" width="300" height="150">
 
 Device options will be shown. Enter the connection ID and connection name. Also, QR code can be used to add the PC as illustrated below.
 
 **Adding the PC to the mobile device**
 
-![Adding the PC to the mobile device](https://wiki.osgeo.org/w/images/6/6d/Syncthing_add_PC.jpg)
+<img src="https://wiki.osgeo.org/w/images/6/6d/Syncthing_add_PC.jpg" width="250" height="250">
 
 Once the PC is added to the mobile, this action sends a request to the PC stating the details of the connection. Press **Add Device** as shown below.
 
 **Accepting the request sent from the mobile device**
 
-![Accepting the request sent from the mobile device](https://wiki.osgeo.org/w/images/7/7e/Syncthing_confirmation_add_device.jpg)
+<img src="https://wiki.osgeo.org/w/images/7/7e/Syncthing_confirmation_add_device.jpg" width="800" height="150">
 
 After acceptance, connections will be established between the mobile device and the PC, which can be seen in SyncTrayzor as follows. The mobile device used in this tutorial is MI 8 SE.
 
 **Connected devices – PC view**
 
-![Connected devices – PC view](https://wiki.osgeo.org/w/images/b/b6/Syncthing_connected_devices.jpg)
+<img src="https://wiki.osgeo.org/w/images/b/b6/Syncthing_connected_devices.jpg" width="300" height="300">
 
 Also, Syncthing on the mobile device displays the connection information as shown here:
 
 **Connected devices – mobile device view**
 
-![Connected devices – mobile device view](https://wiki.osgeo.org/w/images/2/21/Syncthing_connected_devices_mobile_device_view.jpg)
+<img src="https://wiki.osgeo.org/w/images/2/21/Syncthing_connected_devices_mobile_device_view.jpg" width="300" height="300">
 
 Having reached this step means that the mobile device and PC are synchronised. One may add further mobile devices with the same procedure. Once the connection is established between the devices, the details regarding file synchronization must be provided.
 
@@ -317,11 +317,11 @@ This sends a request to the mobile device(s) selected for acknowledgment. Please
 
 **Folder share request sent to mobile device**
 
-![Folder share request sent to mobile device](https://wiki.osgeo.org/w/images/1/16/Drop_down.jpg)
+<img src="https://wiki.osgeo.org/w/images/1/16/Drop_down.jpg" width="400" height="500">
 
 **Accept the request**
 
-![Accept the request](https://wiki.osgeo.org/w/images/e/ef/Photo_ackw_mobile.jpg)
+<img src="https://wiki.osgeo.org/w/images/e/ef/Photo_ackw_mobile.jpg" width="300" height="300">
 
 **Select** the DCIM folder that you previously transferred to finalise the synchronisation setup on your mobile device as shown below. Note that it is the same folder that you transferred to the mobile device (i.e. **DCIM** folder under the **?????Değişcek?????** folder).
 
@@ -343,7 +343,7 @@ Once the camera icon is clicked, camera opens an a photo can be captured. If the
 
 **Taking a photo of an observation with QField**
 
-![Taking a photo of an observation with QField](https://wiki.osgeo.org/w/images/e/e4/Photo_native_camera.jpeg)
+<img src="https://wiki.osgeo.org/w/images/e/e4/Photo_native_camera.jpeg" width="350" height="350">
 
 The captured photos will be synched with all the connected devices. Consequently, a captured photo of a tree can also be visualised in QGIS:
 
@@ -371,7 +371,7 @@ The required steps are as follows:
 
 **QField project synchronisation details**
 
-![QField project synchronisation details](https://wiki.osgeo.org/w/images/5/5e/Qfield_sync_details.jpg)
+<img src="https://wiki.osgeo.org/w/images/5/5e/Qfield_sync_details.jpg" width="350" height="350">
 
 Select **Package for QField**, which opens the following window. Select the export directory, which can be the same directory as previously. Once the **Create** button is clicked, the plugin creates the required Geopackage file and associates it with the QGS file. In this way, data are stored in a Geopackage file.
 
