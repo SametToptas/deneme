@@ -236,3 +236,11 @@ Having reached this step means that the mobile device and PC are synchronised. O
 
 ## 7.Updating the QGIS Project
 
+The path of the captured photos must also be stored in the database. There are two different ways to add a 'photo' attribute to the 'markets' layer. First, the attribute can be added when creating the table in the database. The data type can be chosen as text, whih corresponds to the URL of the image. Second, it can be added from the QGIS project. This tutorial relies on the latter option.
+
+Open the attributes table. Right click the 'markets' layer and click 'Open attributes table'. Then follow these steps:
+
+- Press the 'Toggle Editing Mode' which is shown with button '1'.
+- Press the 'New Field' button which is shown with button '2'.
+
+**Adding a new attribute from QGIS**
