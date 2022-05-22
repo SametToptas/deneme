@@ -93,7 +93,7 @@ The following attributes are included within the created tables:
 
 markets table has a point geometry indicating the latitude and longitude of the observed market as well as the market type and observation time. 
 
-## Connecting the Database with QGIS
+## 3.Connecting the Database with QGIS
 
 The Postgres database created in the previous subsection can be included directly into a QGIS project, thanks to the seamless linkage between QGIS and Postgres. 
 
@@ -118,3 +118,51 @@ Finally, once the OK button is clicked, the connection appears on the Browser pa
 **Adding the tables in Heroku to QGIS**
 
 <img src="" width="500" height="700">
+
+##  4.Setting Up the Value Relations 
+
+in QGIS In order to ease the process of data collection, it is useful to explicitly state the value relationships between the feature layers and to improve the user experience by hiding some of the details. For instance, a student can only select one of the pre-defined market types instead of typing it. This can be achieved by adjusting the **Attribute Form** specified under the **Properties** of the markets layer as shown below.
+
+<img src="" width="500" height="700">
+
+The market type attribute m_type has a value relation to the market_types table. In order to realise this relation. The following settings are specified:
+
+- **Widget type:** Value Relation
+- **Layer:** market_type
+- **Key column:** name_en
+- **Value column:** name_en
+
+In addition, some of the attributes might better be hidden from the users such as the id attribute of the market as it is a serial number that auto increments as a market is recorded. Therefore, this attribute shall not be editable. In addition, it can be hidden from the user to reduce clutter in the GUI of the QField. This process is illustrated as follows.
+
+- Uncheck **Editable**
+- **Widget type:** Hidden
+
+<img src="" width="500" height="700">
+
+Once an attribute is hidden, it means that during data collection that field is not displayed to the user. However, a user could still update it under the attribute table. In order to prevent this as well, we have unchecked Editable.
+
+The last attribute of the markets layer is the observation time. It might be important to record the observation time in order to facilitate further spatio-temporal analysis.
+
+Update the default value of the observation_time attribute to be now() as shown in the figure below. In this way, whenever a market is recorded, its observation time is also recorded.
+
+<img src="" width="500" height="700">
+
+Actions:
+
+- **Widget Type**: Date/Time
+- **Default value**: now()
+
+If the mobile data collection platform assumes internet connection, then including OpenStreetMap in the QGIS project may ease data collection process. Install the **OpenLayers** plugin, and include **OpenStreetMap** in your project.
+
+<img src="" width="500" height="700">
+
+## 5.Transferring the Project to QField
+
+Once all the layers are added, the project is saved as a QGS file. This means that the file is a legible XML document. All of the details of the project are included in this document including the credentials of the Heroku database. Anyone possessing this QGS file can start collecting field data, which would have immediate effect on the Heroku database. In this way, multiple users can effectively collect field data into the same database. This file can directly be transferred to the smart phone or tablet possessing QField.
+
+**Data collection on QField**
+
+<img src="" width="500" height="700">
+
+Once the QGS project file is transferred to the mobile device, it can be opened using QField as shown in (a). The layers appear just like they do in QGIS,as shown in (b). In order to start editing, the relevant layer is selected and then the pen icon is toggled in the upper-right corner of the screen. Once the horizontal lines button on the upper left corner is pressed, the user can start collecting data. The location could either be set by panning around the map and clicking on the '+' button located at the bottom-right of the screen or by clicking the locate button at the left-hand side of the screen, which uses the GNSS receiver of the phone to locate the position of the user. New features are added just like they are added in QGIS with the functionality of hiding some attributes (e.g. id in markets) or by offering a drop-down list to the user (e.g. user can select one of the pre-defined market types).
+
