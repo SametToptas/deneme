@@ -178,3 +178,61 @@ Once all the layers are added, the project is saved as a QGS file. This means th
 
 Once the QGS project file is transferred to the mobile device, it can be opened using QField as shown in (a). The layers appear just like they do in QGIS,as shown in (b). In order to start editing, the relevant layer is selected and then the pen icon is toggled in the upper-right corner of the screen. Once the horizontal lines button on the upper left corner is pressed, the user can start collecting data. The location could either be set by panning around the map and clicking on the '+' button located at the bottom-right of the screen or by clicking the locate button at the left-hand side of the screen, which uses the GNSS receiver of the phone to locate the position of the user. New features are added just like they are added in QGIS with the functionality of hiding some attributes (e.g. id in markets) or by offering a drop-down list to the user (e.g. user can select one of the pre-defined market types).
 
+### Collecting Photos in the Field
+
+Photos can be used in mobile data collection projects to better describe a spatial object. Storing photos in a database is not trivial, and most of the time the path to the photo is stored. For this reason, an additional platform is needed to share photos where multiple users capture photos and synchronise them.
+
+## 6.Setting Up the Snycthing Environment
+
+[Syncthing](https://syncthing.net/) is a continuous file synchronisation program. It synchronizes files between two or more devices. The location of the shared folder is specified on Syncthing. It requires internet to synchronise the files. The aim of using Syncthing in this project is synchronising photo folders between mobile device and computer.
+
+Firstly, Syncthing must be installed on all devices. It can be downloaded for Windows from [here](https://github.com/canton7/SyncTrayzor/releases/tag/v1.1.24). There are two options as x64 and x86. The suitable option can be downloaded. Note that SyncTrayzor is the name of the software on the desktop.
+
+Likewise, the app **Syncthing** must be installed on the mobile device. It can be [downloaded](https://play.google.com/store/apps/details?id=com.nutomic.syncthingandroid) to android devices through Google Play.
+
+Having installed Syncthing on PC and mobile devices, they are required to be connected. Open **SyncTrayzor** on your desktop. Go to **Actions → Show ID** as shown below.
+
+**Obtaining the ID of the PC where each photo will be uploaded**
+
+![Obtaining the ID of the PC where each photo will be uploaded](https://wiki.osgeo.org/w/images/7/7e/Syncthing_showid.jpg)
+
+The ID of a device is presented as a text and QR code as shown below.
+
+**ID of a Snycthing device**
+
+![ID of a Snycthing device](https://wiki.osgeo.org/w/images/b/bf/Syncthing_id.jpg)
+
+This code must also be entered to the mobile device. Press the '+' button in the **Devices** menu as shown below.
+
+**Synching the mobile device with PC**
+
+![Synching the mobile device with PC](https://wiki.osgeo.org/w/images/2/2a/Syncthing_add_device.jpg)
+
+Device options will be shown. Enter the connection ID and connection name. Also, QR code can be used to add the PC as illustrated below.
+
+**Adding the PC to the mobile device**
+
+![Adding the PC to the mobile device](https://wiki.osgeo.org/w/images/6/6d/Syncthing_add_PC.jpg)
+
+Once the PC is added to the mobile, this action sends a request to the PC stating the details of the connection. Press **Add Device** as shown below.
+
+**Accepting the request sent from the mobile device**
+
+![Accepting the request sent from the mobile device](https://wiki.osgeo.org/w/images/7/7e/Syncthing_confirmation_add_device.jpg)
+
+After acceptance, connections will be established between the mobile device and the PC, which can be seen in SyncTrayzor as follows. The mobile device used in this tutorial is MI 8 SE.
+
+**Connected devices – PC view**
+
+![Connected devices – PC view](https://wiki.osgeo.org/w/images/b/b6/Syncthing_connected_devices.jpg)
+
+Also, Syncthing on the mobile device displays the connection information as shown here:
+
+**Connected devices – mobile device view**
+
+![Connected devices – mobile device view](https://wiki.osgeo.org/w/images/2/21/Syncthing_connected_devices_mobile_device_view.jpg)
+
+Having reached this step means that the mobile device and PC are synchronised. One may add further mobile devices with the same procedure. Once the connection is established between the devices, the details regarding file synchronization must be provided.
+
+## 7.Updating the QGIS Project
+
