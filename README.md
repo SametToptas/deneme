@@ -514,52 +514,607 @@ Now, we need to establish the database connection. Click the **New File** button
 The appConfig.js would include the database connection settings (for now it is the localhost) and the entire content of the file should be:
 
 ```javascript
- var developmentDatabase = {
-postgres: {
-host: 'localhost',
-port: 5432,
-database: 'database_name',
-user: 'postgres',
-password: 'postgres'
-}
-}
+connectionString = "postgres://tjlaxzkwaztdgd:ccbc4712d91f24c1c92149a8734e9fe765f6705b8721d582f63c9962a8da8801@ec2-52-215-225-178.eu-west-1.compute.amazonaws.com:5432/de51cfpita1udc";
 
-var connectionString = "postgressql://user:password@host:port/databasename?ssl=true";
-if (process.env.NODE_ENV == 'production') {
-//Production mode
-if (process.env.DATABASE_URL) {
-developmentDatabase =
-parseConnectionString(process.env.DATABASE_URL);
-} else {
-console.log("process.env.DATABASE_URL empty, connectionStringvariable used");
-developmentDatabase = parseConnectionString(connectionString);
-}
-}else{
-//Development mode
-developmentDatabase = parseConnectionString(connectionString);
-}
-function parseConnectionString(connectionString) {
-if (connectionString) {
-var myRegexp = /(\w+):(\w+)@(.+):(\w+)\/(\w+)/g;
-var match = myRegexp.exec(connectionString);
-if (match.length == 6) {
-developmentDatabase.postgres.user = match[1];
-developmentDatabase.postgres.password = match[2];
-developmentDatabase.postgres.host = match[3];
-developmentDatabase.postgres.port = Number(match[4]);
-developmentDatabase.postgres.database = match[5];
-developmentDatabase.postgres.ssl = true;
-return developmentDatabase;
-}
-}
-console.log("connectionString cannot be parsed");
-return null;
-}
 module.exports = {
-hostname: "http://localhost",
-port: 5656,
-database: {
-postgres: developmentDatabase.postgres
-}
+    connectionString: connectionString
+```
+
+The only statement that requires to be changed regarding the credentials of the Heroku database is the **connectionString**.
+
+![web connection](https://wiki.osgeo.org/w/images/0/0c/Web_connection_string.jpg)
+
+This statement should be updated based on the credentials of the Heroku database, which can be found through **Settings → View Credentials**.
+
+**Obtaining Credentials of the Heroku database**
+
+<img src="" width="500" height="700">
+
+After that, data stored in the database must be retrieved. For this, we need to create a new file **database.js**:
+
+**Create new file: database.js**
+
+![database](https://wiki.osgeo.org/w/images/5/5c/Web_database_js.jpg)
+
+The connection is applied from appConfig.js and the query is applied in this script. The important thing is the query at this point. Check that your table name and queries correspond to those in your database. The content of the **database.js** should look like:
+
+```javascript
+const promise = require('bluebird');
+const { append } = require('express/lib/response');
+const CONFIG = require('./appConfig');
+const pgp = require('pg-promise')(options);
+const config ={
+  connectionString: CONFIG.connectionString,
+  max:30,
+  ssl:{rejectUnauthorized: false}
+};
+let DATABASE_PGB = pgp(config);
+
+module.exports = {
+       getAllLocations: getAllLocations
+};
+
+var options = {
+    promiseLib: promise
+};
+
+function getAllLocations(cb) {
+      DATABASE_PGB.any('SELECT ST_X(loc) as longitude, ST_Y(loc) as latitude , m_type as market_type , m_name as market_name,"Photo" as pht from markets')
+      .then(function (data) {
+         cb(null, data);})
+       .catch(function (err) {
+          cb(err)});
 }
 ```
+
+Finally, the web site can be created. Press **New File** and create the **index.html** file.
+
+**Create new file: index.html**
+
+![indexhtml](https://wiki.osgeo.org/w/images/f/f6/Web_index_html.jpg)
+
+The background map is obtained from **OpenLayers**. The query response returns a GeoJSON file. Therefore, **Jquery** library will be used to receive the query response. Also, the security policy is added to run the web site page as HTTPS protocol. Copy the following code as an HTML file:
+
+```javascript
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:500&display=swap" rel="stylesheet">
+</head>
+<style>
+.map{
+  position: fixed;
+  top: 150px;
+  right: 150px;
+  width: 88%;
+  height: 65%;
+  box-shadow: 0 5px 10px rgba(0, 0, 0);
+  padding: 15px;
+  border-radius: 20px;
+  border:10px solid #ccc;
+  bottom:10px;
+}
+body{
+  font-family:"Montserrat", sans-serif ;
+  justify-content: flex-end;
+  align-items: flex-end;
+  background: #ccc;
+}
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family:"Montserrat", sans-serif  ;
+}
+li, a, button{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 500;
+    font-size:25px;
+    color: #fff;
+    text-decoration: none;
+
+}
+
+
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+  background-color: #3586ff;
+}
+footer {
+  position: absolute;
+  background-color: #3586ff;
+  width:100%;
+  color:white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bolder;
+  opacity: 0.75;
+
+}
+footer {
+  height: 16vh;
+  bottom:0;
+}
+
+footer .social_icon,
+footer .menu_1 {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+
+}
+
+footer .social_icon li,
+footer .menu_1 li
+{
+ 
+  list-style: none;
+}
+
+footer .social_icon li a,
+footer .menu_1 li a
+{
+  font-size:2em;
+  color: rgb(0, 0, 0);
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+
+
+footer .social_icon li a:hover {
+  transform: translateY(-10px);
+
+}
+
+footer .menu_1 li a
+{
+  font-size:1.2em;
+  color: rgb(0, 0, 0);
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  opacity: 0.75;
+  font-weight: bolder;
+}
+
+footer .menu_1 li a:hover
+{
+  opacity: 1;
+}
+
+footer p
+{
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+
+footer .wave{
+  position:absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(https://github.com/Berke0609/Osgeo-cdn/blob/main/wave.png?raw=true);
+  background-size: 1000px 100px;
+}
+
+footer .wave#wave1{
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWave 4s linear infinite;
+
+}
+
+footer .wave#wave2{
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animateWave_02 4s linear infinite;
+
+}
+
+
+
+footer .wave#wave3{
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWave 3s linear infinite;
+
+}
+
+footer .wave#wave4{
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animateWave_02 3s linear infinite;
+
+}
+
+@keyframes animateWave
+{
+  0%
+  {
+    background-position-x: 1000px;
+  }
+  100%
+  {
+    background-position-x:0px ;
+  }
+}
+
+@keyframes animateWave_02
+{
+  0%
+  {
+    background-position-x: 0px;
+  }
+  100%
+  {
+    background-position-x:1000px ;
+  }
+}
+.logo {
+  display:inline-block;
+  margin-left:30px;
+  margin-top:15px;
+
+}
+.logo {
+    text-decoration: none;
+    font-size: 50px;
+    font-family: "Montserrat", sans-serif;
+    color:rgb(0, 0, 0);
+    font-weight: bolder;
+    opacity: 0.75;
+}
+
+.nav__links a,
+.cta,
+.overlay__content a {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  color: #202020;
+  text-decoration: none;
+  font-weight: bolder;
+  opacity: 0.75;
+}
+
+.nav__links {
+  list-style: none;
+  display: flex;
+}
+
+.nav__links li {
+  padding: 0px 35px;
+}
+
+.nav__links li a {
+  transition: color 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  color: rgb(0, 0, 0);
+}
+
+.cta {
+  padding: 9px 25px;
+  background-color: #ccc;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s ease 0s;
+}
+
+.cta:hover {
+  background-color: rgba(0, 136, 169, 0.8);
+}
+
+/* Mobile Nav */
+
+.menu {
+  display: none;
+}
+
+.overlay {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: #2b46ce;
+  overflow-x: hidden;
+  transition: width 0.5s ease 0s;
+}
+
+.overlay--active {
+  width: 100%;
+}
+
+.overlay__content {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay a {
+  padding: 15px;
+  font-size: 50px;
+  display: block;
+  transition: color 0.3s ease 0s;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+  color: #0d0d0e;
+}
+.overlay .close {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+  color: #edf0f1;
+}
+
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 30px;
+  }
+  .overlay .close {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  .nav__links,
+  .cta {
+    display: none;
+  }
+  .menu {
+    display: initial;
+  }
+}
+
+.box {
+  position: relative;
+  padding: 45px 20px;
+  background-color: #3586ff;
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 0 1px 4px rgba(0, 0, 0);
+  padding: 15px;
+  border-radius: 20px;
+  border:10px solid #ccc;
+  bottom:10px;
+  
+  
+  
+}
+.box .box-title {
+  font-size: 25px;
+  font-family: "Montserrat", sans-serif;
+  color:#202020;
+  opacity: 0.75;
+  
+}
+
+.box .text {
+  font-size: 20px;
+  font-family: "Montserrat", sans-serif;
+  color:#202020;
+  opacity: 0.75;
+}
+
+
+
+</style>
+<body>
+    <header>
+        <img class="logo" src="https://github.com/Berke0609/Osgeo-cdn/blob/main/MARKETS%20INFORMATION_free-file%20(2).png?raw=true" alt="logo"
+            <nav>
+                <ul class="nav__links">
+                    <li><a href="#">Supermarkets</a></li>
+                    <li><a href="#">Buffets</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+            <a class="cta" href="#">Contact</a>
+            <p class="menu cta">Menu</p>
+    </header>
+    <footer>
+      <div class="waves">
+        <div class="wave" id="wave1"></div>
+        <div class="wave" id="wave2"></div>
+        <div class="wave" id="wave3"></div>
+        <div class="wave" id="wave4"></div>
+      </div>
+      <ul class="social_icon">
+        <li><a href="#"><ion-icon name="logo-linkedin"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-twitter"></ion-icon></a></li>
+        <li><a href="#"><ion-icon name="logo-facebook"></ion-icon></a></li>
+      </ul>
+      <ul class="menu_1">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Team</a></li>
+      </ul>
+      <p>&copy; Designed By Team1</p>
+    </footer>
+    <div id="mobile__menu" class="overlay">
+        <a class="close">&times;</a>
+        <div class="overlay__content">
+            <a href="#">Supermarkets</a>
+            <a href="#">Buffet</a>
+            <a href="#">About</a>
+        </div>
+    </div>
+    <div id="mapdiv" class="map"></div>
+        <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script>
+
+  
+
+    $.getJSON('/api/data', function (data) {
+        map = new OpenLayers.Map("mapdiv");
+        map.addLayer(new OpenLayers.Layer.OSM());
+        
+        var veri1=data[0].longitude;
+        var veri2=data[0].latitude;
+                
+                
+        var point;
+        var length = data.length
+
+        // Data dizisini haritaya ekleme işlemi
+        for (var point = 0; point < data.length; point++) {
+            var lon = data[point].longitude;
+            var lat = data[point].latitude;
+            var type = data[point].market_type;
+            var name = data[point].market_name;
+            var photo = data[point].pht;
+            var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                map.getProjectionObject() // to Spherical Mercator Projection
+                    )
+            var zoom = 12;
+
+            var markers = new OpenLayers.Layer.Markers("Markers");
+            
+            map.addLayer(markers)
+            
+            
+                       
+            var marker = new OpenLayers.Marker(lonLat)
+            marker.lat = lat;
+            marker.lon = lon;
+            marker.type = type;
+            marker.name = name;
+            marker.photo = photo;
+            
+            
+            var popup;
+            marker.events.register("click", marker, function() {
+            // Reset all markers.
+          
+
+                if (popup) {
+                    map.removePopup(popup);
+                }       // closing the popup when click the other
+                  popup = new OpenLayers.Popup("popup",
+                    new OpenLayers.LonLat(this.lonlat.lon,this.lonlat.lat), 
+                    new OpenLayers.Size(400),
+                        `<div class="box" style= "color:#d4d0d0">
+                        <h6 class="box-title" style="margin-left:15">MARKET INFORMATION</h6>
+                        <br>
+                        <p><b class="text" style=>Latitude: </b>${this.lat}</p>
+                        <br>
+                        <p><b class="text">Longitude: </b>${this.lon}</p>
+                        <br>
+                        <p><b class="text">Market Name: </b>${this.name}</p>
+                        <br>
+                        <p><b class="text">Market Type: </b>${this.type}</p>
+                        <br>
+                        <p><b class="text">Market Photo: </b><img src="https://github.com/Berke0609/Osgeo-cdn/blob/main/${this.photo}?raw=true"  style='width:100%;height:auto'></p>
+                        </div>`,
+                        true);
+                        
+                        
+                        map.addPopup(popup);
+                             
+            });
+            
+            
+            markers.addMarker(marker)
+            if (type=='Supermarket') {
+              marker.setUrl('https://github.com/Berke0609/Osgeo-cdn/blob/main/supermarkets.png?raw=true');
+            }
+            else if (type=="Buffet"){
+              marker.setUrl('https://github.com/Berke0609/Osgeo-cdn/blob/main/shop%20(1).png?raw=true');
+            }
+            markers.setOpacity(10);
+            
+            
+                               
+           map.setCenter(lonLat, zoom)
+            } 
+        });
+
+
+    </script>
+</body>
+</html>
+```
+
+Finally, the website needs to be published through NodeJS. Click the **New File** and create the **index.js** file.
+
+**Create new file: index.js**
+
+![indexjs](https://wiki.osgeo.org/w/images/3/3b/Web_new_index_js.jpg)
+
+This file provides code to publish the website. It reads the HTML page and it sends a response. The content of the file should be:
+
+```javascript
+var express = require('express');
+var fs = require('fs');
+var DATABASE = require('./database.js');
+var app = express();
+app.get('/', function (req, res, next) {
+res.writeHead(200, { 'Content-Type': 'text/html' });
+var myReadStream = fs.createReadStream(__dirname + '/index.html',
+'utf8')
+myReadStream.pipe(res);
+});
+app.use('/api/data', function (req, res) {
+DATABASE.getAllLocations(function (err, data) {
+if (err) {
+res.sendStatus(500);
+} else {
+res.send(data);
+}
+})
+});
+app.listen(process.env.PORT || 4000, function(){
+console.log("Express server listening on port %d in %s mode",
+this.address().port, app.settings.env);
+});
+```
+
+It can be checked whether the website is working or not. Go to terminal and write **node index.js**, then press enter.
+
+**Initiating the project**
+
+![Initiating the project](https://wiki.osgeo.org/w/images/c/ca/Web_node_index_js.jpg)
+
+Open a web browser and type: [site](https://team1gis.herokuapp.com/#). Once the browser opens, the data stored on the database would be retrieved and displayed on the map as shown below.
+
+**Visualising collected data on localhost**
+
+![Visualising collected data on localhost](https://github.com/SametToptas/osgeo_report_images/blob/main/sitee.png?raw=true)
+
+## 14.Deploying the Project on Heroku
+
