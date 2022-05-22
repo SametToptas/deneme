@@ -453,7 +453,7 @@ Press enter for all of the questions. The metadata file **package.json** is crea
 
 **The metadata file: package.json**
 
-![The metadata file: package.json](https://wiki.osgeo.org/w/images/a/a7/Web_package_json.jpg)
+<img src="https://wiki.osgeo.org/w/images/a/a7/Web_package_json.jpg" width="900" height="250">
 
 Some JavaScript packages need to be installed. These packages will be installed via npm (Node Package Manager). Packages to install are listed as follows:
 
@@ -501,7 +501,7 @@ The package.json will be updated once these packages are installed, and will loo
 
 **Updated package.json**
 
-![Updated package.json](https://wiki.osgeo.org/w/images/a/a7/Web_package_json.jpg)
+<img src="https://wiki.osgeo.org/w/images/a/a7/Web_package_json.jpg" width="900" height="250">
 
 Project settings are ready.
 
@@ -509,7 +509,7 @@ Now, we need to establish the database connection. Click the **New File** button
 
 **Adding the appConfig.js file**
 
-![Adding the appConfig.js file](https://wiki.osgeo.org/w/images/d/d5/Web_appconfig.jpg)
+<img src="https://wiki.osgeo.org/w/images/d/d5/Web_appconfig.jpg" width="900" height="250">
 
 The appConfig.js would include the database connection settings (for now it is the localhost) and the entire content of the file should be:
 
@@ -522,7 +522,7 @@ module.exports = {
 
 The only statement that requires to be changed regarding the credentials of the Heroku database is the **connectionString**.
 
-![web connection](https://wiki.osgeo.org/w/images/0/0c/Web_connection_string.jpg)
+<img src="https://wiki.osgeo.org/w/images/0/0c/Web_connection_string.jpg" width="900" height="250">
 
 This statement should be updated based on the credentials of the Heroku database, which can be found through **Settings → View Credentials**.
 
@@ -534,7 +534,7 @@ After that, data stored in the database must be retrieved. For this, we need to 
 
 **Create new file: database.js**
 
-![database](https://wiki.osgeo.org/w/images/5/5c/Web_database_js.jpg)
+<img src="https://wiki.osgeo.org/w/images/5/5c/Web_database_js.jpg" width="900" height="250">
 
 The connection is applied from appConfig.js and the query is applied in this script. The important thing is the query at this point. Check that your table name and queries correspond to those in your database. The content of the **database.js** should look like:
 
@@ -571,7 +571,7 @@ Finally, the web site can be created. Press **New File** and create the **index.
 
 **Create new file: index.html**
 
-![indexhtml](https://wiki.osgeo.org/w/images/f/f6/Web_index_html.jpg)
+<img src="https://wiki.osgeo.org/w/images/f/f6/Web_index_html.jpg" width="900" height="250">
 
 The background map is obtained from **OpenLayers**. The query response returns a GeoJSON file. Therefore, **Jquery** library will be used to receive the query response. Also, the security policy is added to run the web site page as HTTPS protocol. Copy the following code as an HTML file:
 
@@ -1074,7 +1074,7 @@ Finally, the website needs to be published through NodeJS. Click the **New File*
 
 **Create new file: index.js**
 
-![indexjs](https://wiki.osgeo.org/w/images/3/3b/Web_new_index_js.jpg)
+<img src="https://wiki.osgeo.org/w/images/3/3b/Web_new_index_js.jpg" width="900" height="250">
 
 This file provides code to publish the website. It reads the HTML page and it sends a response. The content of the file should be:
 
@@ -1108,13 +1108,13 @@ It can be checked whether the website is working or not. Go to terminal and writ
 
 **Initiating the project**
 
-![Initiating the project](https://wiki.osgeo.org/w/images/c/ca/Web_node_index_js.jpg)
+<img src="https://wiki.osgeo.org/w/images/c/ca/Web_node_index_js.jpg" width="900" height="250">
 
 Open a web browser and type: [site](https://team1gis.herokuapp.com/#). Once the browser opens, the data stored on the database would be retrieved and displayed on the map as shown below.
 
 **Visualising collected data on localhost**
 
-![Visualising collected data on localhost]()
+<img src="" width="900" height="250">
 
 ## 15.Deploying the Project on Heroku
 
