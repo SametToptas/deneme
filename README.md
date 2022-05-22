@@ -463,3 +463,6 @@ Express is a minimal and flexible Node.js web application framework that provide
 
 In terminal write the following and press enter:
 
+```javascript
+npm install express --save
+```
