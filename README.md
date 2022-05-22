@@ -65,7 +65,9 @@ This tutorial relied on pgAdmin 4, and one it is installed, we can connect to ou
 
 **Connecting Heroku Database**
 
-<img src="https://wiki.osgeo.org/w/images/5/58/Postgres2qgis.jpg" width="500" height="700">
+![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20connection.png?raw=true)
+
+![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20connection%202.png?raw=true)
 
 It is now possible to create the tables. To open the query window, right click on the database and select the **Query Tool.**
 
@@ -73,9 +75,7 @@ The scenario for this tutorial requires three tables: i) markets and ii) buffets
 
 First, let's create the market_type table. The following code creates two different types of markets (supermarket and buffet).
 
-![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20connection.png?raw=true)
-
-![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20connection%202.png?raw=true)
+![Postgre create table](https://github.com/SametToptas/osgeo_report_images/blob/main/postgre%20code1.png?raw=true)
 
 The other two tables possess a spatial component. Therefore, the first step is to activate the extension **postgis**, which is achieved using the create extension postgis statement. 
 
@@ -117,4 +117,4 @@ Finally, once the OK button is clicked, the connection appears on the Browser pa
 
 **Adding the tables in Heroku to QGIS**
 
-<img src="https://wiki.osgeo.org/w/images/5/58/Postgres2qgis.jpg" width="500" height="700">
+<img src="" width="500" height="700">
