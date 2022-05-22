@@ -351,3 +351,75 @@ The captured photos will be synched with all the connected devices. Consequently
 
 <img src="" width="500" height="700">
 
+## 9.Export Project
+
+The first part is to export the project so that all the database is backed up to a Geopackage file (gpkg) that QField can update.
+
+The required steps are as follows:
+
+- Under **Plugins → QFieldSync**, select **Preferences** as shown in (a) below. Clicking on this button opens the window presented in (b).
+  - Set the **Default Import Directory** to be the path of the project.
+  - Set the **Default Export Directory** to be the path of the files that are to be exported. This directory must be copied to the mobile device.
+
+**QFieldSnyc plugin**
+
+<img src="" width="500" height="700">
+
+- Select **Project Configuration**, which opens a window as shown below listing the available layers and actions that can to be taken for each of them.
+  - For OpenStreetMap, select **no action**.
+  - The other layers should be in the **offline editing** mode.
+
+**QField project synchronisation details**
+
+![QField project synchronisation details](https://wiki.osgeo.org/w/images/5/5e/Qfield_sync_details.jpg)
+
+Select **Package for QField**, which opens the following window. Select the export directory, which can be the same directory as previously. Once the **Create** button is clicked, the plugin creates the required Geopackage file and associates it with the QGS file. In this way, data are stored in a Geopackage file.
+
+**Creating the package for QField**
+
+<img src="" width="500" height="700">
+
+**Note** that once the export folder is successfully created as shown below, it **may** disrupt the project file. For example, the drop down list to select the market type, which otherwise works when the QGS file is transferred directly to QField, does not work any more.
+
+Open the new project file in QGIS and **make sure** that all of the settings are correct.
+
+Finally, open a **DCIM** folder, which will be used to synchronise photos that are captured offline.
+
+**Make sure settings are correct in the exported QGIS file**
+
+<img src="" width="500" height="700">
+
+## 10.Capturing Photos in the Field
+
+Continue with the following steps while you have internet connection:
+
+- Transfer the project to the mobile devices. Multiple users can collect offline data.
+- Open SyncTrayzor (PC) and share the DCIM folder with other devices.
+- Syncthing will ask you to accept the request on your mobile device. Accept it and select the DCIM under the export folder. In this way, all the photos captured in QField will be stored under the DCIM folder, which would then be synchronised.
+
+## 11.Data Collection
+
+At this stage, we do not have internet connection any more. Nevertheless, we can collect field data with the following steps:
+
+- Open the project available under the **export** directory in QField.
+- Collect field data.
+- You can also **update** existing records
+
+Now we are ready to synchronise data we have just collected. For this, we need to have internet connection.
+
+## 12.Synchronisation
+
+Once you have internet connection again, do the followings to synchronise:
+
+- Transfer the export folder in your mobile device back to your PC.
+- Open GIS.
+- Under QFieldSync plugin select Synchronize from QField, which opens up a window as illustrated below.
+- Once the Synchronize button is clicked, all of the content of the Geopackage is read and the Heroku database is updated accordingly.
+
+**Synchronize project**
+
+<img src="" width="500" height="700">
+
+- Save the QGS file.
+- You can repeat the process of synchronising for other devices by repeating this last process.
+
