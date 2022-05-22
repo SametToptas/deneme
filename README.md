@@ -423,3 +423,9 @@ Once you have internet connection again, do the followings to synchronise:
 - Save the QGS file.
 - You can repeat the process of synchronising for other devices by repeating this last process.
 
+# Web Interface
+
+This section describes how to visualise the data stored in the database on the web. First, the section provides a brief introduction on the required technologies, including NodeJS, Visual Studio Code and GitHub. Second, the code is presented that can be used to visualise the collected field data.
+
+## 13.Technologies
+
