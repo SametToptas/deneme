@@ -680,4 +680,8 @@ We need to make a few changes in the index.html file so that we can add popups t
             } 
         });
 ```
+**Visualising Popup**
 
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/6.PNG?raw=true" width="auto" height="auto">
+
+Clicking on any of the markers opens a popup showing the data of that markers.
