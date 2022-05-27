@@ -299,13 +299,13 @@ Enter the folder name and folder path. It is important to enter the file locatio
 
 **Setting the file synchronisation folder**
 
-<img src="https://wiki.osgeo.org/w/images/b/b6/Photo_synctrayzor_setup.jpg" width="auto" height="auto">
+<img src="" width="auto" height="auto">
 
 Select the mobile devices you want to synchronize the folder that contains photos in the **Sharing** option and press **Save** button.
 
 **Selecting the devices to share the directory containing photos**
 
-<img src="https://wiki.osgeo.org/wiki/File:Photo_synctrayzor_setup.jpg" width="auto" height="auto">
+<img src="" width="auto" height="auto">
 
 This sends a request to the mobile device(s) selected for acknowledgment. Please note that
 
