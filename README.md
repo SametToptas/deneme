@@ -291,7 +291,7 @@ To synchronise the photo folder with the connected devices, press **Add Folder**
 
 **Adding the folder in SyncTrayzor for sharing photos with multiple users**
 
-<img src="https://wiki.osgeo.org/w/images/b/b6/Photo_synctrayzor_setup.jpg" width="auto height="auto">
+<img src="https://wiki.osgeo.org/w/images/f/f8/Photo_synctrayzor.jpg" width="auto" height="auto">
 
 Enter the folder name and folder path. It is important to enter the file location correctly as shown below.
 
