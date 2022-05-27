@@ -312,11 +312,11 @@ This sends a request to the mobile device(s) selected for acknowledgment. Please
 
 **Folder share request sent to mobile device**
 
-<img src="https://wiki.osgeo.org/w/images/1/16/Drop_down.jpg" width="auto" height="auto">
+<img src="https://wiki.osgeo.org/w/images/1/16/Drop_down.jpg" width="500" height="600">
 
 **Accept the request**
 
-<img src="https://wiki.osgeo.org/w/images/e/ef/Photo_ackw_mobile.jpg" width="auto" height="auto">
+<img src="https://wiki.osgeo.org/w/images/e/ef/Photo_ackw_mobile.jpg" width="500" height="600">
 
 **Select** the DCIM folder that you previously transferred to finalise the synchronisation setup on your mobile device as shown below. Note that it is the same folder that you transferred to the mobile device (i.e. **DCIM** folder under the **?????Değişcek?????** folder).
 
