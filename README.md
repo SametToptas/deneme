@@ -708,3 +708,12 @@ There is one more task to be done before deploying the project on Heroku. The cr
 <img src="https://wiki.osgeo.org/w/images/0/01/Web_update_package_json.jpg" width="auto" height="auto">
 
 The project is ready to be published on Heroku.
+
+First we need to download the Heroku CLI from here[site]https://devcenter.heroku.com/articles/heroku-cli.
+
+After installation, follow the steps below
+
+Go to system properties from the start bar.
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/8.PNG?raw=true" width="auto" height="auto">
+
+
