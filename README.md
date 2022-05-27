@@ -775,4 +775,4 @@ Finally;
 
 <img src="https://github.com/SametToptas/osgeo_report_images/blob/main/12.PNG?raw=true" width="auto" height="auto">
 
-**Our Website deployed with Heroku **
+**Our Website deployed with Heroku**
