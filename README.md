@@ -713,21 +713,21 @@ First we need to download the Heroku CLI from here[site]https://devcenter.heroku
 
 After installation, follow the steps below
 
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/8.PNG?raw=true" width="auto" height="auto">
+
 **Go to system properties from the start bar.**
 
 <img src="https://github.com/SametToptas/osgeo_report_images/blob/main/8.PNG?raw=true" width="auto" height="auto">
 
-**Then Choose the environment variables.."
-
-<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/8.PNG?raw=true" width="auto" height="auto">
-
-**Then Choose path and click the edit button**
+**Then Choose the environment variables.."**
 
 <img src="https://github.com/SametToptas/osgeo_report_images/blob/main/9.PNG?raw=true" width="auto" height="auto">
 
-**Then click New button and write C:\Program Files\heroku\bin**
+**Then Choose path and click the edit button**
 
 <img src="https://github.com/SametToptas/osgeo_report_images/blob/main/10.PNG?raw=true" width="auto" height="auto">
+
+**Then click New button and write C:\Program Files\heroku\bin**
 
 Let's save the changes we made and close the window.
 
