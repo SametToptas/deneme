@@ -242,7 +242,7 @@ Open the attributes table. Right click the 'markets' layer and click 'Open attri
 
 **Adding a new attribute from QGIS**
 
-<img src="https://wiki.osgeo.org/wiki/File:Photo_add_new_attribute.jpg" width="200" height="200">
+<img src="[https://wiki.osgeo.org/wiki/File:Photo_add_new_attribute.jpg](https://wiki.osgeo.org/wiki/File:Photo_add_new_attribute.jpg)" width="200" height="200">
 
 After that, enter the column name and select the data type. Select type as 'Text, unlimited length (text)', and then click OK.
 
