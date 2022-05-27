@@ -129,7 +129,7 @@ in QGIS In order to ease the process of data collection, it is useful to explici
 
 **Relating the tree type in trees layer with pre-defined tree_types**
 
-<img src="" width="500" height="700">
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/1.PNG?raw=true" width="auto" height="auto">
 
 The market type attribute m_type has a value relation to the market_types table. In order to realise this relation. The following settings are specified:
 
