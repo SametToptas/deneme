@@ -736,3 +736,39 @@ Let's save the changes we made and close the window.
 
 **Then open Commend Promt and write "heroku" on it**
 
+### Deploying by Visual Studio from Heroku
+
+Write the following steps in Terminal, respectively.
+
+```javascript
+  heroku login
+```
+You will be prompted to press a key, press a key and login to your Heroku account.
+
+Then follow the below steps
+
+```javascript
+  git init
+```
+
+```javascript
+  heroku git:remote -a "yourdatabasetag"
+```
+
+```javascript
+  git add .
+```
+
+```javascript
+  git commit -am "initial commit"
+```
+
+```javascript
+  git push heroku main
+```
+
+Finally;
+
+```javascript
+  heroku open
+```
