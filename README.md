@@ -714,6 +714,7 @@ First we need to download the Heroku CLI from here[site]https://devcenter.heroku
 After installation, follow the steps below
 
 Go to system properties from the start bar.
+
 <img src="https://github.com/SametToptas/osgeo_report_images/blob/main/8.PNG?raw=true" width="auto" height="auto">
 
 
