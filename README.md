@@ -305,7 +305,7 @@ Select the mobile devices you want to synchronize the folder that contains photo
 
 **Selecting the devices to share the directory containing photos**
 
-<img src="" width="auto" height="auto">
+<img src="https://wiki.osgeo.org/wiki/File:Photo_synctrayzor_setup.jpg" width="auto" height="auto">
 
 This sends a request to the mobile device(s) selected for acknowledgment. Please note that
 
