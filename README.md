@@ -171,7 +171,7 @@ Once all the layers are added, the project is saved as a QGS file. This means th
 
 **Data collection on QField**
 
-<img src="https://wiki.osgeo.org/wiki/File:Qfield_data_collection.jpg" width="400" height="400">
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/13.PNG?raw=true" width="auto" height="auto">
 
 Once the QGS project file is transferred to the mobile device, it can be opened using QField as shown in (a). The layers appear just like they do in QGIS,as shown in (b). In order to start editing, the relevant layer is selected and then the pen icon is toggled in the upper-right corner of the screen. Once the horizontal lines button on the upper left corner is pressed, the user can start collecting data. The location could either be set by panning around the map and clicking on the '+' button located at the bottom-right of the screen or by clicking the locate button at the left-hand side of the screen, which uses the GNSS receiver of the phone to locate the position of the user. New features are added just like they are added in QGIS with the functionality of hiding some attributes (e.g. id in markets) or by offering a drop-down list to the user (e.g. user can select one of the pre-defined market types).
 
