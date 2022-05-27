@@ -692,3 +692,19 @@ You can get help from CSS codes for the visualization of your site. The final st
 
 <img src="https://github.com/SametToptas/osgeo_report_images/blob/main/7.PNG?raw=true" width="auto" height="auto">
 
+## 16.Deployment Project With Heroku
+
+One more file needs to be created before the website is published through Heroku. Go to New File and create Procfile file. Heroku apps include a Procfile that specifies the commands that are executed by the app on startup.
+
+<img src="https://wiki.osgeo.org/w/images/4/45/Web_procfile.jpg" width="auto" height="auto">
+
+Only the starting file of the project is specified within the Procfile:
+
+```javascript
+  web:node index.js
+```
+There is one more task to be done before deploying the project on Heroku. The created package.json file needs to be updated. It must be told by which file the website is started. Therefore, the start parameter must be added.
+
+<img src="https://wiki.osgeo.org/w/images/0/01/Web_update_package_json.jpg" width="auto" height="auto">
+
+The project is ready to be published on Heroku.
