@@ -731,3 +731,8 @@ After installation, follow the steps below
 
 Let's save the changes we made and close the window.
 
+
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/11.PNG?raw=true" width="auto" height="auto">
+
+**Then open Commend Promt and write "heroku" on it**
+
