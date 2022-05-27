@@ -121,7 +121,7 @@ Finally, once the OK button is clicked, the connection appears on the Browser pa
 
 **Adding the tables in Heroku to QGIS**
 
-<img src="" width="500" height="700">
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/berke%20odev.PNG?raw=true" width="auto" height="auto">
 
 ##  4.Setting Up the Value Relations 
 
