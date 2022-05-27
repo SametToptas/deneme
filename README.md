@@ -287,25 +287,25 @@ to your mobile device.
 
 **Transfer the project folder to the mobile device**
 
-<img src="https://wiki.osgeo.org/w/images/1/19/Project_folder.jpg" width="200" height="300">
+<img src="https://wiki.osgeo.org/w/images/1/19/Project_folder.jpg" width="auto" height="auto">
 
 To synchronise the photo folder with the connected devices, press **Add Folder** in the SyncTrayzor as shown below.
 
 **Adding the folder in SyncTrayzor for sharing photos with multiple users**
 
-<img src="https://wiki.osgeo.org/w/images/f/f8/Photo_synctrayzor.jpg" width="200" height="300">
+<img src="https://wiki.osgeo.org/w/images/f/f8/Photo_synctrayzor.jpg" width="auto height="auto">
 
 Enter the folder name and folder path. It is important to enter the file location correctly as shown below.
 
 **Setting the file synchronisation folder**
 
-<img src="https://wiki.osgeo.org/w/images/b/b6/Photo_synctrayzor_setup.jpg" width="200" height="300">
+<img src="https://wiki.osgeo.org/w/images/b/b6/Photo_synctrayzor_setup.jpg" width="auto" height="auto">
 
 Select the mobile devices you want to synchronize the folder that contains photos in the **Sharing** option and press **Save** button.
 
 **Selecting the devices to share the directory containing photos**
 
-<img src="https://wiki.osgeo.org/wiki/File:Photo_synctrayzor_setup.jpg" width="200" height="300">
+<img src="https://wiki.osgeo.org/wiki/File:Photo_synctrayzor_setup.jpg" width="auto" height="auto">
 
 This sends a request to the mobile device(s) selected for acknowledgment. Please note that
 
