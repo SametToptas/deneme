@@ -165,17 +165,13 @@ Actions:
 
 If the mobile data collection platform assumes internet connection, then including OpenStreetMap in the QGIS project may ease data collection process. Install the **OpenLayers** plugin, and include **OpenStreetMap** in your project.
 
-**Including OpenStreetMap in the project to ease data collection**
-
-<img src="" width="500" height="700">
-
 ## 5.Transferring the Project to QField
 
 Once all the layers are added, the project is saved as a QGS file. This means that the file is a legible XML document. All of the details of the project are included in this document including the credentials of the Heroku database. Anyone possessing this QGS file can start collecting field data, which would have immediate effect on the Heroku database. In this way, multiple users can effectively collect field data into the same database. This file can directly be transferred to the smart phone or tablet possessing QField.
 
 **Data collection on QField**
 
-<img src="" width="500" height="700">
+<img src="https://wiki.osgeo.org/wiki/File:Qfield_data_collection.jpg" width="400" height="400">
 
 Once the QGS project file is transferred to the mobile device, it can be opened using QField as shown in (a). The layers appear just like they do in QGIS,as shown in (b). In order to start editing, the relevant layer is selected and then the pen icon is toggled in the upper-right corner of the screen. Once the horizontal lines button on the upper left corner is pressed, the user can start collecting data. The location could either be set by panning around the map and clicking on the '+' button located at the bottom-right of the screen or by clicking the locate button at the left-hand side of the screen, which uses the GNSS receiver of the phone to locate the position of the user. New features are added just like they are added in QGIS with the functionality of hiding some attributes (e.g. id in markets) or by offering a drop-down list to the user (e.g. user can select one of the pre-defined market types).
 
@@ -246,13 +242,13 @@ Open the attributes table. Right click the 'markets' layer and click 'Open attri
 
 **Adding a new attribute from QGIS**
 
-<img src="" width="500" height="700">
+<img src="https://wiki.osgeo.org/wiki/File:Photo_add_new_attribute.jpg" width="200" height="200">
 
 After that, enter the column name and select the data type. Select type as 'Text, unlimited length (text)', and then click OK.
 
 **Adding a new field in QGIS**
 
-<img src="" width="500" height="700">
+<img src="https://wiki.osgeo.org/w/images/4/40/Photo_add_field.jpg" width="300" height="300">
 
 Finally, click on 'Toggle Editing Mode' to end editing, and press save.
 
