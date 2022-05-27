@@ -145,7 +145,7 @@ In addition, some of the attributes might better be hidden from the users such a
 
 **Removing clutter from the GUI by hiding some attributes**
 
-<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/3.PNG?raw=true"" width="400" height="400">
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/3.PNG?raw=true" width="400" height="400">
 
 
 Once an attribute is hidden, it means that during data collection that field is not displayed to the user. However, a user could still update it under the attribute table. In order to prevent this as well, we have unchecked Editable.
@@ -156,7 +156,7 @@ Update the default value of the observation_time attribute to be now() as shown 
 
 **Assigning default observation time to the corresponding attribute**
 
-<img src="(https://github.com/SametToptas/osgeo_report_images/blob/main/2.PNG?raw=true)" width="400" height="400">
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/2.PNG?raw=true" width="400" height="400">
 
 Actions:
 
