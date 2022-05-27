@@ -303,7 +303,7 @@ Select the mobile devices you want to synchronize the folder that contains photo
 
 **Selecting the devices to share the directory containing photos**
 
-<img src="https://wiki.osgeo.org/wiki/File:Photo_synctrayzor_setup.jpg" width="auto" height="auto">
+<img src="https://wiki.osgeo.org/w/images/e/e1/Photo_devices2share.jpg" width="auto" height="auto">
 
 This sends a request to the mobile device(s) selected for acknowledgment. Please note that
 
@@ -312,17 +312,17 @@ This sends a request to the mobile device(s) selected for acknowledgment. Please
 
 **Folder share request sent to mobile device**
 
-<img src="https://wiki.osgeo.org/w/images/1/16/Drop_down.jpg" width="400" height="500">
+<img src="https://wiki.osgeo.org/w/images/1/16/Drop_down.jpg" width="auto" height="auto">
 
 **Accept the request**
 
-<img src="https://wiki.osgeo.org/w/images/e/ef/Photo_ackw_mobile.jpg" width="300" height="300">
+<img src="https://wiki.osgeo.org/w/images/e/ef/Photo_ackw_mobile.jpg" width="auto" height="auto">
 
 **Select** the DCIM folder that you previously transferred to finalise the synchronisation setup on your mobile device as shown below. Note that it is the same folder that you transferred to the mobile device (i.e. **DCIM** folder under the **?????Değişcek?????** folder).
 
 **Setting up the mobile device to accommodate synched photos**
 
-<img src="" width="500" height="700">
+<img src="https://wiki.osgeo.org/w/images/d/dc/Photo_mobile_setup.jpeg" width="auto" height="auto">
 
 Now the synched mobile devices are ready to take photos. The photos will be synched with the PC as well as with other synched mobile devices.
 
@@ -332,7 +332,7 @@ Open the updated QGIS project file (gisteam1_w_photo_2_qfield.qgs) in QField and
 
 **Taking a photo of an observation with QField**
 
-<img src="" width="500" height="700">
+<img src="https://wiki.osgeo.org/w/images/e/e4/Photo_native_camera.jpeg" width="350" height="auto">
 
 Once the camera icon is clicked, camera opens an a photo can be captured. If there is a problem at this point, make sure that the **Use native camera function** is turned off under QField Settings as shown below:
 
@@ -341,82 +341,6 @@ Once the camera icon is clicked, camera opens an a photo can be captured. If the
 <img src="https://wiki.osgeo.org/w/images/e/e4/Photo_native_camera.jpeg" width="350" height="350">
 
 The captured photos will be synched with all the connected devices. Consequently, a captured photo of a tree can also be visualised in QGIS:
-
-**Visualising a Field Photo in QGIS**
-
-<img src="" width="500" height="700">
-
-## 9.Export Project
-
-The first part is to export the project so that all the database is backed up to a Geopackage file (gpkg) that QField can update.
-
-The required steps are as follows:
-
-- Under **Plugins → QFieldSync**, select **Preferences** as shown in (a) below. Clicking on this button opens the window presented in (b).
-  - Set the **Default Import Directory** to be the path of the project.
-  - Set the **Default Export Directory** to be the path of the files that are to be exported. This directory must be copied to the mobile device.
-
-**QFieldSnyc plugin**
-
-<img src="" width="500" height="700">
-
-- Select **Project Configuration**, which opens a window as shown below listing the available layers and actions that can to be taken for each of them.
-  - For OpenStreetMap, select **no action**.
-  - The other layers should be in the **offline editing** mode.
-
-**QField project synchronisation details**
-
-<img src="https://wiki.osgeo.org/w/images/5/5e/Qfield_sync_details.jpg" width="350" height="350">
-
-Select **Package for QField**, which opens the following window. Select the export directory, which can be the same directory as previously. Once the **Create** button is clicked, the plugin creates the required Geopackage file and associates it with the QGS file. In this way, data are stored in a Geopackage file.
-
-**Creating the package for QField**
-
-<img src="" width="500" height="700">
-
-**Note** that once the export folder is successfully created as shown below, it **may** disrupt the project file. For example, the drop down list to select the market type, which otherwise works when the QGS file is transferred directly to QField, does not work any more.
-
-Open the new project file in QGIS and **make sure** that all of the settings are correct.
-
-Finally, open a **DCIM** folder, which will be used to synchronise photos that are captured offline.
-
-**Make sure settings are correct in the exported QGIS file**
-
-<img src="" width="500" height="700">
-
-## 10.Capturing Photos in the Field
-
-Continue with the following steps while you have internet connection:
-
-- Transfer the project to the mobile devices. Multiple users can collect offline data.
-- Open SyncTrayzor (PC) and share the DCIM folder with other devices.
-- Syncthing will ask you to accept the request on your mobile device. Accept it and select the DCIM under the export folder. In this way, all the photos captured in QField will be stored under the DCIM folder, which would then be synchronised.
-
-## 11.Data Collection
-
-At this stage, we do not have internet connection any more. Nevertheless, we can collect field data with the following steps:
-
-- Open the project available under the **export** directory in QField.
-- Collect field data.
-- You can also **update** existing records
-
-Now we are ready to synchronise data we have just collected. For this, we need to have internet connection.
-
-## 12.Synchronisation
-
-Once you have internet connection again, do the followings to synchronise:
-
-- Transfer the export folder in your mobile device back to your PC.
-- Open GIS.
-- Under QFieldSync plugin select Synchronize from QField, which opens up a window as illustrated below.
-- Once the Synchronize button is clicked, all of the content of the Geopackage is read and the Heroku database is updated accordingly.
-
-**Synchronize project**
-
-<img src="" width="500" height="700">
-
-- Save the QGS file.
-- You can repeat the process of synchronising for other devices by repeating this last process.
 
 # Web Interface
 
@@ -448,7 +372,7 @@ Press enter for all of the questions. The metadata file **package.json** is crea
 
 **The metadata file: package.json**
 
-<img src="https://wiki.osgeo.org/w/images/a/a7/Web_package_json.jpg" width="900" height="250">
+<img src="https://wiki.osgeo.org/w/images/a/a7/Web_package_json.jpg" width="auto" height="auto">
 
 Some JavaScript packages need to be installed. These packages will be installed via npm (Node Package Manager). Packages to install are listed as follows:
 
@@ -496,7 +420,7 @@ The package.json will be updated once these packages are installed, and will loo
 
 **Updated package.json**
 
-<img src="https://wiki.osgeo.org/w/images/a/a7/Web_package_json.jpg" width="900" height="250">
+<img src="https://wiki.osgeo.org/w/images/a/a7/Web_package_json.jpg" width="auto" height="auto">
 
 Project settings are ready.
 
@@ -504,7 +428,7 @@ Now, we need to establish the database connection. Click the **New File** button
 
 **Adding the appConfig.js file**
 
-<img src="https://wiki.osgeo.org/w/images/d/d5/Web_appconfig.jpg" width="400" height="250">
+<img src="https://wiki.osgeo.org/w/images/d/d5/Web_appconfig.jpg" width="auto" height="auto">
 
 The appConfig.js would include the database connection settings (for now it is the localhost) and the entire content of the file should be:
 
@@ -517,13 +441,13 @@ module.exports = {
 
 The only statement that requires to be changed regarding the credentials of the Heroku database is the **connectionString**.
 
-<img src="https://wiki.osgeo.org/w/images/0/0c/Web_connection_string.jpg" width="800" height="200">
+<img src="https://wiki.osgeo.org/w/images/0/0c/Web_connection_string.jpg" width="auto" height="auto">
 
 This statement should be updated based on the credentials of the Heroku database, which can be found through **Settings → View Credentials**.
 
 **Obtaining Credentials of the Heroku database**
 
-<img src="" width="500" height="700">
+<img src="https://wiki.osgeo.org/w/images/5/52/Web_heroku_credentials.jpg" width="auto" height="auto">
 
 After that, data stored in the database must be retrieved. For this, we need to create a new file **database.js**:
 
@@ -620,7 +544,7 @@ Finally, the website needs to be published through NodeJS. Click the **New File*
 
 **Create new file: index.js**
 
-<img src="https://wiki.osgeo.org/w/images/3/3b/Web_new_index_js.jpg" width="400" height="400">
+<img src="https://wiki.osgeo.org/w/images/3/3b/Web_new_index_js.jpg" width="auto" height="auto">
 
 This file provides code to publish the website. It reads the HTML page and it sends a response. The content of the file should be:
 
@@ -656,11 +580,12 @@ It can be checked whether the website is working or not. Go to terminal and writ
 
 <img src="https://wiki.osgeo.org/w/images/c/ca/Web_node_index_js.jpg" width="400" height="400">
 
-Open a web browser and type: [site](https://team1gis.herokuapp.com/#). Once the browser opens, the data stored on the database would be retrieved and displayed on the map as shown below.
+Open a web browser and type: [site]http://localhost:4000/. Once the browser opens, the data stored on the database would be retrieved and displayed on the map as shown below.
 
 **Visualising collected data on localhost**
 
-<img src="" width="900" height="250">
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/5.PNG?raw=true" width="auto" height="auto">
 
-## 15.Deploying the Project on Heroku
+## 15.Development of the Project
+
 
