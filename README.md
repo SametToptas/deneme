@@ -263,7 +263,7 @@ The following adjustments have to be satisfied to display photos on QGIS:
 
 **Configuring the photos field – part 1**
 
-<img src="" width="500" height="700">
+<img src="https://github.com/SametToptas/osgeo_report_images/blob/main/4.PNG?raw=true" width="400" height="400">
 
 Continue with the following steps:
 
@@ -276,7 +276,7 @@ Press the apply button. The project is now ready to display photos of trees.
 
 **Configuring the photos field – part 2**
 
-<img src="" width="500" height="700">
+
 
 Transfer the project folder containing:
 
@@ -287,7 +287,7 @@ to your mobile device.
 
 **Transfer the project folder to the mobile device**
 
-<img src="" width="500" height="700">
+<img src="https://wiki.osgeo.org/w/images/1/19/Project_folder.jpg" width="500" height="700">
 
 To synchronise the photo folder with the connected devices, press **Add Folder** in the SyncTrayzor as shown below.
 
