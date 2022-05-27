@@ -588,4 +588,96 @@ Open a web browser and type: [site]http://localhost:4000/. Once the browser open
 
 ## 15.Development of the Project
 
+### Adding Popup to Markers
+
+We need to make a few changes in the index.html file so that we can add popups to the markers on the map. These;
+
+```javascript
+    $.getJSON('/api/data', function (data) {
+        map = new OpenLayers.Map("mapdiv");
+        map.addLayer(new OpenLayers.Layer.OSM());
+        
+        var veri1=data[0].longitude;
+        var veri2=data[0].latitude;
+                
+                
+        var point;
+        var length = data.length
+
+        // Data dizisini haritaya ekleme işlemi
+        for (var point = 0; point < data.length; point++) {
+            var lon = data[point].longitude;
+            var lat = data[point].latitude;
+            var type = data[point].market_type;
+            var name = data[point].market_name;
+            var photo = data[point].pht;
+            var lonLat = new OpenLayers.LonLat(lon, lat).transform(new OpenLayers.Projection("EPSG:4326"), // transform from WGS 1984
+                map.getProjectionObject() // to Spherical Mercator Projection
+                    )
+            var zoom = 9.5;
+
+            var markers = new OpenLayers.Layer.Markers("Markers");
+            
+            map.addLayer(markers)
+            
+            var scaleline = new OpenLayers.Control.ScaleLine();
+            map.addControl(scaleline);  
+                       
+            var marker = new OpenLayers.Marker(lonLat)
+            marker.lat = lat;
+            marker.lon = lon;
+            marker.type = type;
+            marker.name = name;
+            marker.photo = photo;
+            
+            
+            var popup;
+            marker.events.register("click", marker, function() {
+            // Reset all markers.
+          
+
+            if (popup != null) {
+            popup.destroy();
+            popup = null;
+            }
+                  popup = new OpenLayers.Popup("popup",
+                    new OpenLayers.LonLat(this.lonlat.lon,this.lonlat.lat), 
+                    new OpenLayers.Size(400),
+                        `<div class="box" style= "color:#d4d0d0">
+                        <h6 class="box-title" style="margin-left:15">MARKET INFORMATION</h6>
+                        <br>
+                        <p><b class="text" style=>Latitude: </b>${this.lat}</p>
+                        <br>
+                        <p><b class="text">Longitude: </b>${this.lon}</p>
+                        <br>
+                        <p><b class="text">Market Name: </b>${this.name}</p>
+                        <br>
+                        <p><b class="text">Market Type: </b>${this.type}</p>
+                        <br>
+                        <p><b class="text">Market Photo: </b><img src="https://github.com/Berke0609/Osgeo-cdn/blob/main/${this.photo}?raw=true"  style='width:100%;height:auto'></p>
+                        </div>`,
+                        true);
+                                
+                        map.addPopup(popup);
+                        popup.setBackgroundColor("#bcd2ee")
+                        
+                             
+            });
+            
+            
+            markers.addMarker(marker)
+            if (type=='Supermarket') {
+              marker.setUrl('https://github.com/Berke0609/Osgeo-cdn/blob/main/supermarkets.png?raw=true');
+            }
+            else if (type=="Buffet"){
+              marker.setUrl('https://github.com/Berke0609/Osgeo-cdn/blob/main/shop%20(1).png?raw=true');
+            }
+            markers.setOpacity(10);
+            
+            
+                               
+           map.setCenter(lonLat, zoom)
+            } 
+        });
+```
 
