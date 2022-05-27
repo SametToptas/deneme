@@ -318,11 +318,11 @@ This sends a request to the mobile device(s) selected for acknowledgment. Please
 
 <img src="https://wiki.osgeo.org/w/images/e/ef/Photo_ackw_mobile.jpg" width="500" height="600">
 
-**Select** the DCIM folder that you previously transferred to finalise the synchronisation setup on your mobile device as shown below. Note that it is the same folder that you transferred to the mobile device (i.e. **DCIM** folder under the **?????Değişcek?????** folder).
+**Select** the DCIM folder that you previously transferred to finalise the synchronisation setup on your mobile device as shown below. Note that it is the same folder that you transferred to the mobile device.
 
 **Setting up the mobile device to accommodate synched photos**
 
-<img src="https://wiki.osgeo.org/w/images/d/dc/Photo_mobile_setup.jpeg" width="auto" height="auto">
+<img src="https://wiki.osgeo.org/w/images/d/dc/Photo_mobile_setup.jpeg" width="500" height="600">
 
 Now the synched mobile devices are ready to take photos. The photos will be synched with the PC as well as with other synched mobile devices.
 
